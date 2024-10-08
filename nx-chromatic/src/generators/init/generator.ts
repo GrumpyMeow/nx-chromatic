@@ -23,6 +23,8 @@ function addCacheableOperation(tree: Tree) {
   nxJson.targetDefaults ??= {};
   nxJson.targetDefaults['chromatic'] ??= {};
   nxJson.targetDefaults['chromatic'].cache = true;
+  nxJson.targetDefaults['chromatic'].dependsOn = ["build-storybook"];
+  nxJson.targetDefaults['chromatic'].executor = "nx-chromatic:chromatic";
 
   updateNxJson(tree, nxJson);
 }
