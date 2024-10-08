@@ -28,10 +28,6 @@ Run: `pnpm nx add nx-chromatic`
 
 Add in each project.json:
 ```
-    "chromatic": {
-      "options": {
-        "token": "..."
-      }
-    },
+    "chromatic": { },
 
 ```
