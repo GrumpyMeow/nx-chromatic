@@ -10,5 +10,6 @@ export interface ChromaticExecutorSchema {
     forceRebuild: boolean;
     zip: boolean;
     noInteractive: boolean;
+    configFile: string;
   }
   

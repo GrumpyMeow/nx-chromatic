@@ -32,7 +32,11 @@ const runExecutor: PromiseExecutor<ChromaticExecutorSchema> = async (
     const chromaticOptions: ChromaticOptions = {} as ChromaticOptions;
     
     chromaticOptions.storybookBuildDir = outputDir;
-    chromaticOptions.skipUpdateCheck = true;
+    chromaticOptions.skipUpdateCheck = true;    
+
+    if (options.configFile != '') {
+      chromaticOptions.configFile = options.configFile;
+    }
 
     if (options.onlyChanged != '') {
       chromaticOptions.onlyChanged = options.onlyChanged;

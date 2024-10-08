@@ -7,7 +7,8 @@
   "properties": {
     "token": {
       "type": "string",
-      "description": "chromatic project token"
+      "description": "chromatic project token",
+      "default": ""
     },
     "parameters": {
       "type": "string",
@@ -58,7 +59,12 @@
       "type": "boolean",
       "description": "Don't ask interactive questions about your setup and don't overwrite output. Always true in non-TTY environments.",
       "default": true
+    },
+    "configFile": {
+      "type": "string",
+      "description": "Path to a configuration file containing the options listed in JSON format. Uses \"chromatic.config.json\" by default.",
+      "default": ""
     }
   },
-  "required": ["token"]
+  "required": []
 }

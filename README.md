@@ -9,6 +9,18 @@ Todo's:
 
 - [ ] Get the chromatic-token from the chromatic-config file
 - [ ] Implement inferred tasks
+- [ ] Find solution for `buildScriptName` in NX-workspace
+
+
+
+
+Temporary workaround for `buildScriptName`: 
+  Add in package.json:
+  ```
+  "scripts": {
+    "build-storybook": "nx run $NX_TASK_TARGET_PROJECT:build-storybook"
+  },
+  ```
 
 
 # Install

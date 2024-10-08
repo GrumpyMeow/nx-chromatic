@@ -19,6 +19,15 @@ function addChromaticAddon(tree: Tree) {
       (_, projectName, targetName) => {
         const project = readProjectConfiguration(tree, projectName);
 
+        const filenameConfig = joinPathFragments(
+          project.root,
+          '.storybook',
+          'chromatic.config.json');
+
+        if (!tree.exists(filenameConfig)) {
+          tree.write(filenameConfig,'{}');
+        }
+
         const filename = joinPathFragments(
           project.root,
           '.storybook',
@@ -27,7 +36,7 @@ function addChromaticAddon(tree: Tree) {
 
         let content = previewTs.toString();
         if (!content.includes('@chromatic-com/storybook')) {
-          content = content.replace('\'@storybook/addon-essentials\'', '\'@storybook/addon-essentials\', \'@chromatic-com/storybook\'')
+          content = content.replace('\'@storybook/addon-essentials\'', `'@storybook/addon-essentials', {name:'@chromatic-com/storybook',options:{configFile:'${filenameConfig}'} }`)
 
           // Todo: probably beter to trigger for all projects: `pnpx storybook add @chromatic-com/storybook --config-dir apps/nxtest/.storybook`
 
@@ -53,6 +62,9 @@ function addCacheableOperation(tree: Tree) {
   nxJson.targetDefaults['chromatic'].cache = true;
   nxJson.targetDefaults['chromatic'].dependsOn = ["build-storybook"];
   nxJson.targetDefaults['chromatic'].executor = "nx-chromatic:chromatic";
+  nxJson.targetDefaults['chromatic'].options = {};
+  nxJson.targetDefaults['chromatic'].options ??= {};
+  nxJson.targetDefaults['chromatic'].options.configFile = '{projectRoot}/.storybook/chromatic.config.json';
 
   updateNxJson(tree, nxJson);
 }
