@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "version": 2,
+  "title": "Chromatic executor",
+  "description": "Chromatic executor to catch visual regression issues",
+  "type": "object",
+  "properties": {
+    "token": {
+      "type": "string",
+      "description": "chromatic project token"
+    },
+    "parameters": {
+      "type": "string",
+      "description": "chromatic parameters",
+      "default": ""
+    },
+    "buildTarget": {
+      "type": "string",
+      "description": "build target",
+      "default": "build-storybook"
+    },
+    "allowConsoleErrors": {
+      "type": "boolean",
+      "description": "allow for console errors to occur",
+      "default": false
+    },
+    "onlyChanged": {
+      "type": "string",
+      "description": "enable turbosnap for branch",
+      "default": ""
+    },
+    "exitZeroOnChanges": {
+      "type": "string",
+      "description": "exit exit-code zero on changes for branch",
+      "default": ""
+    },
+    "exitOnceUploaded": {
+      "type": "string",
+      "description": "exit after uploading for branch",
+      "default": ""
+    },
+    "autoAcceptChanges": {
+      "type": "string",
+      "description": "auto accept changes  for branch",
+      "default": ""
+    },
+    "forceRebuild": {
+      "type": "boolean",
+      "description": "force rebuild",
+      "default": false
+    },
+    "zip": {
+      "type": "boolean",
+      "description": "zip",
+      "default": true
+    }
+  },
+  "required": ["token"]
+}

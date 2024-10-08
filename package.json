@@ -2,6 +2,12 @@
   "name": "@nx-chromatic/source",
   "version": "0.0.0",
   "license": "MIT",
+  "author": "Sander Schutten",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GrumpyMeow/nx-chromatic.git",
+    "directory": "nx-chromatic"
+  },
   "scripts": {},
   "private": true,
   "dependencies": {

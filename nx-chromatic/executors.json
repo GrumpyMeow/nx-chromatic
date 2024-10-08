@@ -1,0 +1,9 @@
+{
+  "executors": {
+    "chromatic": {
+      "implementation": "./src/executors/chromatic/executor",
+      "schema": "./src/executors/chromatic/schema.json",
+      "description": "chromatic executor"
+    }
+  }
+}

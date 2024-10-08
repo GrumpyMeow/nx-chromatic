@@ -1,10 +1,21 @@
 {
   "name": "nx-chromatic",
   "version": "0.0.1",
+  "author": "Sander Schutten",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GrumpyMeow/nx-chromatic.git",
+    "directory": "nx-chromatic"
+  },
   "dependencies": {
+    "@nx/devkit": "20.0.0",
     "tslib": "^2.3.0"
   },
   "type": "commonjs",
   "main": "./src/index.js",
-  "typings": "./src/index.d.ts"
+  "typings": "./src/index.d.ts",
+  "executors": "./executors.json",
+  "peerDependencies": {
+    "chromatic": "^11.12.0"
+  }
 }
