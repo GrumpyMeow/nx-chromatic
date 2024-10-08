@@ -27,8 +27,12 @@ const runExecutor: PromiseExecutor<ChromaticExecutorSchema> = async (
 ) => {
   const outputDir = getBuildTargetOutputDir(options, context);
 
-  try {
+  try {    
+
     const chromaticOptions: ChromaticOptions = {} as ChromaticOptions;
+    
+    chromaticOptions.storybookBuildDir = outputDir;
+    chromaticOptions.skipUpdateCheck = true;
 
     if (options.onlyChanged != '') {
       chromaticOptions.onlyChanged = options.onlyChanged;
@@ -46,25 +50,12 @@ const runExecutor: PromiseExecutor<ChromaticExecutorSchema> = async (
       chromaticOptions.autoAcceptChanges = options.autoAcceptChanges;
     }
 
-    if (options.allowConsoleErrors) {
-      chromaticOptions.allowConsoleErrors = true;
-    }
-
-    if (options.token) {
-      chromaticOptions.projectToken = options.token;
-    }
-
-    if (options.forceRebuild) {
-      chromaticOptions.forceRebuild = options.forceRebuild;
-    }
-
-    if (options.zip) {
-      chromaticOptions.zip = options.zip;
-    }
-
-    chromaticOptions.storybookBuildDir = outputDir;
-    chromaticOptions.skipUpdateCheck = true;
-
+    chromaticOptions.allowConsoleErrors = options.allowConsoleErrors;
+    chromaticOptions.projectToken = options.token;
+    chromaticOptions.forceRebuild = options.forceRebuild;
+    chromaticOptions.zip = options.zip;
+    chromaticOptions.interactive = !options.noInteractive;
+    
     const chromaticLogger: ChromaticLogger = {
       debug: () => {
         return;

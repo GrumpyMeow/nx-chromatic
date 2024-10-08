@@ -9,5 +9,6 @@ export interface ChromaticExecutorSchema {
     autoAcceptChanges: string;
     forceRebuild: boolean;
     zip: boolean;
+    noInteractive: boolean;
   }
   

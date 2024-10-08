@@ -53,6 +53,11 @@
       "type": "boolean",
       "description": "zip",
       "default": true
+    },
+    "noInteractive": {
+      "type": "boolean",
+      "description": "Don't ask interactive questions about your setup and don't overwrite output. Always true in non-TTY environments.",
+      "default": true
     }
   },
   "required": ["token"]

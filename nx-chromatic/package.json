@@ -1,6 +1,6 @@
 {
   "name": "nx-chromatic",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Sander Schutten",
   "repository": {
     "type": "git",
@@ -17,5 +17,6 @@
   "executors": "./executors.json",
   "peerDependencies": {
     "chromatic": "^11.12.0"
-  }
+  },
+  "generators": "./generators.json"
 }
