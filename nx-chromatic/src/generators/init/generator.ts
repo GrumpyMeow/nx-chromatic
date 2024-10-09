@@ -13,6 +13,16 @@ import { InitGeneratorSchema } from './schema';
 import { forEachExecutorOptions } from '@nx/devkit/src/generators/executor-options-utils';
 
 function addChromaticAddon(tree: Tree) {
+  // Add temporary workaround for running build-script from Chromatic Storybook add-on
+  const filenamePackageJson = joinPathFragments('package.json');
+  const packageJson = tree.read(filenamePackageJson);
+  const packageJsonContent = JSON.parse(packageJson.toString());
+  if (!packageJsonContent['scripts']['build-storybook']) {
+    packageJsonContent['scripts']['build-storybook'] = "nx run $NX_TASK_TARGET_PROJECT:build-storybook";
+  }
+  
+  tree.write(filenamePackageJson,JSON.stringify(packageJsonContent));
+
     forEachExecutorOptions(
       tree,
       '@storybook/angular:build-storybook',
@@ -40,6 +50,7 @@ function addChromaticAddon(tree: Tree) {
 
           tree.write(filename,content);
         }
+        
       }
     );
 }
