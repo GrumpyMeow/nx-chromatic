@@ -1,11 +1,20 @@
-# nx-chromatic
+# nx=chromatic: NX-plugin for Chromatic
 
-This library was generated with [Nx](https://nx.dev).
+This nx-plugin for Chromatic is work-in-progress.
 
-## Building
+This nx-plugin is not an official Chromatic, NX or Storybook project. Please don't bother them with issues caused by this plugin.
 
-Run `nx build nx-chromatic` to build the library.
+## Install
+Install the package with: `pnpm nx add nx-chromatic`
 
-## Running unit tests
+* During the install your `nx.json` file will be modified to provide the target `chromatic`.
+* During the install your `main.ts` files will be modified to add the `@chromatic-com/storybook` Storybook add-on.
+* During the install an empty `chromatic.config.json` file will be created. From within Storybook this file can be further configured by linking to Chromatic. 
 
-Run `nx test nx-chromatic` to execute the unit tests via [Jest](https://jestjs.io).
+## Configure projects
+For each project you want to have Chromatic as target, add in project.json:
+```
+    "chromatic": { },
+```
+
+

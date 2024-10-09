@@ -42,7 +42,7 @@
     },
     "autoAcceptChanges": {
       "type": "string",
-      "description": "auto accept changes  for branch",
+      "description": "auto accept changes for branch",
       "default": ""
     },
     "forceRebuild": {

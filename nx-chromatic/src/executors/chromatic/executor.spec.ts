@@ -4,6 +4,7 @@ import { ChromaticExecutorSchema } from './schema';
 import executor from './executor';
 
 const options: ChromaticExecutorSchema = {};
+
 const context: ExecutorContext = {
   root: '',
   cwd: process.cwd(),

@@ -9,7 +9,7 @@
     "directory": "nx-chromatic"
   },
   "scripts": {},
-  "private": true,
+  "private": false,
   "dependencies": {
     "@nx/devkit": "20.0.0"
   },
