@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "version": 2,
+  "title": "Chromatic executor",
+  "description": "Chromatic executor to catch visual regression issues",
+  "type": "object",
+  "properties": {
+    "token": {
+      "type": "string",
+      "description": "chromatic project token",
+      "default": ""
+    },
+    "parameters": {
+      "type": "string",
+      "description": "chromatic parameters",
+      "default": ""
+    },
+    "buildTarget": {
+      "type": "string",
+      "description": "build target",
+      "default": "build-storybook"
+    },
+    "allowConsoleErrors": {
+      "type": "boolean",
+      "description": "allow for console errors to occur",
+      "default": false
+    },
+    "onlyChanged": {
+      "type": "string",
+      "description": "enable turbosnap for branch",
+      "default": ""
+    },
+    "exitZeroOnChanges": {
+      "type": "string",
+      "description": "exit exit-code zero on changes for branch",
+      "default": ""
+    },
+    "exitOnceUploaded": {
+      "type": "string",
+      "description": "exit after uploading for branch",
+      "default": ""
+    },
+    "autoAcceptChanges": {
+      "type": "string",
+      "description": "auto accept changes for branch",
+      "default": ""
+    },
+    "forceRebuild": {
+      "type": "boolean",
+      "description": "force rebuild",
+      "default": false
+    },
+    "zip": {
+      "type": "boolean",
+      "description": "zip",
+      "default": true
+    },
+    "noInteractive": {
+      "type": "boolean",
+      "description": "Don't ask interactive questions about your setup and don't overwrite output. Always true in non-TTY environments.",
+      "default": true
+    },
+    "configFile": {
+      "type": "string",
+      "description": "Path to a configuration file containing the options listed in JSON format. Uses \"chromatic.config.json\" by default.",
+      "default": ""
+    }
+  },
+  "required": []
+}
