@@ -8,7 +8,6 @@ import {
   Tree,
   updateNxJson,
 } from '@nx/devkit';
-import { assertNotUsingTsSolutionSetup } from '@nx/js/src/utils/typescript/ts-solution-setup';
 import { InitGeneratorSchema } from './schema';
 import { forEachExecutorOptions } from '@nx/devkit/src/generators/executor-options-utils';
 
@@ -83,8 +82,6 @@ export function initGenerator(tree: Tree, schema: InitGeneratorSchema) {
 }
 
 export async function initGeneratorInternal(tree: Tree, schema: InitGeneratorSchema) {
-  assertNotUsingTsSolutionSetup(tree, 'chromatic', 'init');
-
   const nxJson = readNxJson(tree);
   const addPluginDefault =
     process.env.NX_ADD_PLUGINS !== 'false' &&
