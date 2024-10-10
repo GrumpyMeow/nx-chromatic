@@ -29,7 +29,8 @@ function addChromaticAddon(tree: Tree) {
       (_, projectName, targetName) => {
         const project = readProjectConfiguration(tree, projectName);
 
-        const storybookConfigDir = project.targets['build-storybook'].options['configDir'];
+        const storybookConfigDir = project.targets?.['build-storybook']?.options?.['configDir'] ?? joinPathFragments(project.root,'.storybook');
+
         const filenameConfig = joinPathFragments(
           storybookConfigDir,
           '.storybook',
@@ -70,7 +71,7 @@ function addCacheableOperation(tree: Tree) {
   nxJson.targetDefaults ??= {};
   nxJson.targetDefaults['chromatic'] ??= {};
   const chromaticTarget = nxJson.targetDefaults['chromatic'];
-  chromaticTarget.cache = true;
+  chromaticTarget.cache = false;
   chromaticTarget.dependsOn = ["build-storybook"];
   chromaticTarget.executor = "nx-chromatic:chromatic";
   chromaticTarget.options ??= {};
