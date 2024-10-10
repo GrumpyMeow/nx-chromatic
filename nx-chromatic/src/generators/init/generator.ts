@@ -36,7 +36,10 @@ function addChromaticAddon(tree: Tree) {
           'chromatic.config.json');
 
         if (!tree.exists(filenameConfig)) {
-          tree.write(filenameConfig,'{}');
+          tree.write(filenameConfig,`
+          {
+            "$schema": "https://www.chromatic.com/config-file.schema.json"
+          }`);
         }
 
         const filename = joinPathFragments(
@@ -89,8 +92,12 @@ export async function initGeneratorInternal(tree: Tree, schema: InitGeneratorSch
     nxJson.useInferencePlugins !== false;
   schema.addPlugin ??= addPluginDefault;
 
-  addCacheableOperation(tree);
-  addChromaticAddon(tree);
+  if (schema.addChromaticTarget) {
+    addCacheableOperation(tree);
+  }
+  if (schema.addChromaticAddon) {
+    addChromaticAddon(tree);
+  }
 
   const tasks: GeneratorCallback[] = [];
 

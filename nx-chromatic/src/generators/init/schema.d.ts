@@ -4,4 +4,6 @@ export interface InitGeneratorSchema {
   keepExistingVersions?: boolean;
   updatePackageScripts?: boolean;
   addPlugin?: boolean;
+  addChromaticAddon?: boolean;
+  addChromaticTarget?: boolean;
 }
