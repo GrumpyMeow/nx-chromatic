@@ -31,3 +31,15 @@ Add in each project.json:
     "chromatic": { },
 
 ```
+
+
+
+## Contribute
+
+```
+pnpm install
+
+pnpm nx run nx-chromatic:build
+
+pnpx nx nx-release-publish nx-chromatic
+```
