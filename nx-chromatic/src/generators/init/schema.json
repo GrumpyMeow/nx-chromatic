@@ -25,6 +25,16 @@
       "x-priority": "internal",
       "description": "Update `package.json` scripts with inferred targets",
       "default": false
+    },
+    "addChromaticAddon": {
+      "type": "boolean",
+      "description": "Add Chromatic Storybook addon",
+      "default": true
+    },
+    "addChromaticTarget": {
+      "type": "boolean",
+      "description": "Add Chromatic target",
+      "default": true
     }
   }
 }
