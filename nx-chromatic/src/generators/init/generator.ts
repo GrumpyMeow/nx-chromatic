@@ -28,8 +28,9 @@ function addChromaticAddon(tree: Tree) {
       (_, projectName, targetName) => {
         const project = readProjectConfiguration(tree, projectName);
 
+        const storybookConfigDir = project.targets['build-storybook'].options['configDir'];
         const filenameConfig = joinPathFragments(
-          project.root,
+          storybookConfigDir,
           '.storybook',
           'chromatic.config.json');
 
@@ -38,7 +39,7 @@ function addChromaticAddon(tree: Tree) {
         }
 
         const filename = joinPathFragments(
-          project.root,
+          storybookConfigDir,
           '.storybook',
           'main.ts');
         const previewTs = tree.read(filename);
